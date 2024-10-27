@@ -10,6 +10,8 @@ spec:
       name: 'aws-load-balancer-controller'
     spec:
       syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
         automated:
           prune: true
           allowEmpty: true
