@@ -9,6 +9,11 @@ spec:
     metadata:
       name: 'aws-load-balancer-controller'
     spec:
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+          selfHeal: true
       project: default
       source:
         chart: aws-load-balancer-controller
