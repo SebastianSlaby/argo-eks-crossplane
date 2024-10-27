@@ -13,5 +13,5 @@ module "lb_controller_irsa_role" {
 
 resource "aws_iam_role_policy_attachment" "lb_controller" {
     policy_arn = "arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess"
-    role = module.lb_controller_irsa_role.iam_role_arn
+    role = module.lb_controller_irsa_role.iam_role_name
 }
