@@ -34,15 +34,17 @@ resource "kubernetes_manifest" "app_of_apps" {
 resource "kubernetes_secret" "cluster" {
   depends_on = [ helm_release.argo ]
   metadata {
-    name = "main-cluster"
+    name = var.cluster_name
     namespace = "argocd"
     labels = {
       "argocd.argoproj.io/secret-type" = "cluster"
     }
+    annotations = {
+      "clusterName" = var.cluster_name
+    }
   }
-
   data = {
-    name: "main"
+    name: var.cluster_name
     server: "https://kubernetes.default.svc"
   }
 }

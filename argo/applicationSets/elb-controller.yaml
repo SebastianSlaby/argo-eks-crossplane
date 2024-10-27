@@ -14,6 +14,9 @@ spec:
         chart: aws-load-balancer-controller
         repoURL: https://aws.github.io/eks-charts
         targetRevision: v1.9.2
+        helm:
+          values:
+            clusterName: '{{.name}}'
       destination:
         server: "https://kubernetes.default.svc"
         namespace: aws-lb-controller
