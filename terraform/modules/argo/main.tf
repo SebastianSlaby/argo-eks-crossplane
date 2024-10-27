@@ -42,7 +42,6 @@ resource "kubernetes_secret" "cluster" {
   }
 
   data = {
-    config: "{'tlsClientConfig':{'insecure':false}}"
     name: "main"
     server: "https://kubernetes.default.svc"
   }
