@@ -7,6 +7,8 @@ spec:
     metadata:
       name: 'aws-load-balancer-controller'
     spec:
+      generators:
+      - clusters: {} # Provision to all clusters
       project: aws-lb-controller
       source:
         chart: aws-load-balancer-controller

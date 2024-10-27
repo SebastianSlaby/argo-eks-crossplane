@@ -17,3 +17,5 @@ spec:
     path: argo
     repoURL: https://github.com/SebastianSlaby/argo-eks-crossplane.git
     targetRevision: HEAD
+    directory:
+      recurse: true

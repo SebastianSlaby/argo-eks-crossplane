@@ -30,3 +30,20 @@ resource "kubernetes_secret" "repo" {
 resource "kubernetes_manifest" "app_of_apps" {
   manifest = yamldecode(file("${path.module}/app-of-apps.yaml"))
 }
+
+resource "kubernetes_secret" "cluster" {
+  depends_on = [ helm_release.argo ]
+  metadata {
+    name = "main-cluster"
+    namespace = "argocd"
+    labels = {
+      "argocd.argoproj.io/secret-type" = "cluster"
+    }
+  }
+
+  data = {
+    config: "{'tlsClientConfig':{'insecure':false}}"
+    name: "main"
+    server: "https://kubernetes.default.svc"
+  }
+}
