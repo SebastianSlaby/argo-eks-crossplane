@@ -6,6 +6,9 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
+  syncPolicy:
+    automated:
+      prune: true
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc

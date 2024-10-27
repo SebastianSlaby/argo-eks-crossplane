@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: aws-load-balancer-controller
+spec:
+  template:
+    metadata:
+      name: 'aws-load-balancer-controller'
+    spec:
+      project: aws-lb-controller
+      source:
+        chart: aws-load-balancer-controller
+        repoURL: https://aws.github.io/eks-charts
+        targetRevision: v2.9.2
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: aws-lb-controller
