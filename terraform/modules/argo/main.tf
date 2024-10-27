@@ -26,3 +26,7 @@ resource "kubernetes_secret" "repo" {
     url = "https://github.com/SebastianSlaby/argo-eks-crossplane"
   }
 }
+
+resource "kubernetes_manifest" "app_of_apps" {
+  manifest = yamldecode(file("${path.module}/app-of-apps.yaml"))
+}
