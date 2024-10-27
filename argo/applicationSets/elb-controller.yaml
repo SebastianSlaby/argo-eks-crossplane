@@ -24,6 +24,9 @@ spec:
         helm:
           values: |
             clusterName: '{{name}}'
+            serviceAccount:
+              name: '{{metadata.annotations.lbControllerArn}}'
+              create: false
       destination:
         server: "https://kubernetes.default.svc"
         namespace: aws-lb-controller

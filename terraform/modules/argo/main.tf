@@ -7,7 +7,7 @@ resource "helm_release" "argo" {
   create_namespace = true
 
   values = [
-    "${file("${path.module}/values.yaml")}"
+    "${file("${path.module}/manifests/values.yaml")}"
   ]
 }
 
@@ -28,7 +28,7 @@ resource "kubernetes_secret" "repo" {
 }
 
 resource "kubernetes_manifest" "app_of_apps" {
-  manifest = yamldecode(file("${path.module}/app-of-apps.yaml"))
+  manifest = yamldecode(file("${path.module}/manifests/app-of-apps.yaml"))
 }
 
 resource "kubernetes_secret" "cluster" {
@@ -41,6 +41,7 @@ resource "kubernetes_secret" "cluster" {
     }
     annotations = {
       "clusterName" = var.cluster_name
+      "lbControllerArn" = module.lb_controller_irsa_role.iam_role_arn
     }
   }
   data = {
