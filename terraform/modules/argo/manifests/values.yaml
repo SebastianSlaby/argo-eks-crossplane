@@ -20,10 +20,7 @@ server:
   service:
     type: NodePort
   ingress:
-    enabled: true
-    hostname: ""
-    ingressClassName: alb
-    tls: true
+    enabled: false # Setting up an ingress here requires an domain to work properly with the ALB controller
   autoscaling:
     enabled: true
     minReplicas: 2
