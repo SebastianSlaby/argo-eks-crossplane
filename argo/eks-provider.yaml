@@ -4,3 +4,5 @@ metadata:
   name: provider-aws-eks
 spec:
   package: xpkg.upbound.io/upbound/provider-aws-eks:v1.17.0
+  controllerConfigRef:
+    name: aws-config
