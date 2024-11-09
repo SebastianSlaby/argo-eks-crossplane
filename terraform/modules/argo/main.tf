@@ -27,6 +27,7 @@ resource "kubernetes_secret" "repo" {
   }
 }
 
+# Deploy this with Helm and set dependencies to avoid errors about CRDs not existing
 resource "kubernetes_manifest" "app_of_apps" {
   manifest = yamldecode(file("${path.module}/manifests/app-of-apps.yaml"))
 }

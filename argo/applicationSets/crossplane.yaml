@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: crossplane
+spec:
+  generators:
+  - clusters: {} # Provision to all clusters
+  template:
+    metadata:
+      name: 'crossplane'
+    spec:
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          prune: true
+          allowEmpty: true
+          selfHeal: true
+      project: default
+      source:
+        chart: crossplane
+        repoURL: https://charts.crossplane.io/master/
+        targetRevision: v1.19.0
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: crossplane-system
