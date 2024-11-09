@@ -19,8 +19,8 @@ spec:
       project: default
       source:
         chart: crossplane
-        repoURL: https://charts.crossplane.io/master/
-        targetRevision: v1.18.0
+        repoURL: https://charts.crossplane.io/stable
+        targetRevision: 1.18.0
       destination:
         server: "https://kubernetes.default.svc"
         namespace: crossplane-system
