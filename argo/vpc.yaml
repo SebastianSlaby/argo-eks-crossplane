@@ -1,8 +1,8 @@
 apiVersion: ec2.aws.upbound.io/v1beta1
 kind: VPC
 metadata:
-  annotations:
   labels:
+    purpose: eks
   name: example
 spec:
   forProvider:
