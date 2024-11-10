@@ -1,0 +1,10 @@
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: aws-config
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::107045546375:role/crossplane
+    helm.sh/hook: post-install
+spec:
+  podSecurityContext:
+    fsGroup: 2000
