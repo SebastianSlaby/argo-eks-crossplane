@@ -2,6 +2,8 @@ apiVersion: iam.aws.crossplane.io/v1beta1
 kind: Role
 metadata:
   name: somenoderole
+  annotations:
+    argocd.argoproj.io/sync-wave: "99"
 spec:
   forProvider:
     assumeRolePolicyDocument: |

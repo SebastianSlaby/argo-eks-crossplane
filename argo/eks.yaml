@@ -3,6 +3,8 @@ kind: Cluster
 metadata:
   labels:
     testing.upbound.io/example-name: example
+  annotations:
+    argocd.argoproj.io/sync-wave: "99"
   name: sample-eks-cluster
 spec:
   forProvider:

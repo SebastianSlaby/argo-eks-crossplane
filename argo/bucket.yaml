@@ -2,6 +2,8 @@ apiVersion: s3.aws.upbound.io/v1beta1
 kind: Bucket
 metadata:
   name: mybucket-random-1312jeklfjsdkalf
+  annotations:
+    argocd.argoproj.io/sync-wave: "99"
 spec:
   forProvider:
     region: us-east-1

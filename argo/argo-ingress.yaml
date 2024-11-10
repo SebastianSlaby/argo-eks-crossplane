@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
+    argocd.argoproj.io/sync-wave: "99"
   name: argo-release-argocd-server
   namespace: argocd
 spec:
