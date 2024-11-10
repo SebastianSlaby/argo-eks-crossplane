@@ -3,10 +3,13 @@ kind: Cluster
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "10"
-  name: test-crossplane-123
+  labels:
+    testing.upbound.io/example-name: example
+  name: sample-eks-cluster
 spec:
   forProvider:
     region: us-east-1
+   #   name: sample-eks-cluster
     vpcConfig:
       subnetIds:
         - "subnet-0525bb50919612bc6"
