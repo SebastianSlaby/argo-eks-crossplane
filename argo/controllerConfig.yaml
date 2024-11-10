@@ -8,3 +8,6 @@ metadata:
 spec:
   podSecurityContext:
     fsGroup: 2000
+  metadata:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::767397804217:role/crossplane
