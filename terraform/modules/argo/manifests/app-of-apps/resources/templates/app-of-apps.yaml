@@ -16,7 +16,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argo
+    path: argo/applicationSets
     repoURL: https://github.com/SebastianSlaby/argo-eks-crossplane.git
     targetRevision: HEAD
     directory:
