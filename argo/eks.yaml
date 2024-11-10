@@ -10,7 +10,7 @@ spec:
   forProvider:
     region: us-east-1
     roleArnRef:
-      name: sample-eks-cluster
+      name: sample-role
     vpcConfig:
       subnetIdRefs:
         - name: subnetattach-1
