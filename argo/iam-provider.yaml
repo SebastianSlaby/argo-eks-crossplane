@@ -4,3 +4,5 @@ metadata:
   name: provider-aws
 spec:
   package: xpkg.upbound.io/crossplane-contrib/provider-aws:v0.50.5
+  controllerConfigRef:
+    name: aws-config
