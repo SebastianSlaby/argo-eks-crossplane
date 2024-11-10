@@ -2,7 +2,7 @@ apiVersion: eks.aws.upbound.io/v1beta2
 kind: Cluster
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "9"
+    argocd.argoproj.io/sync-wave: "10"
   labels:
     testing.upbound.io/example-name: example
   name: sample-eks-cluster
