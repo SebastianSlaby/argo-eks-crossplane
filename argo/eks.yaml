@@ -9,13 +9,6 @@ metadata:
 spec:
   forProvider:
     region: us-east-1
-   #   name: sample-eks-cluster
     vpcConfig:
-      subnetIds:
-        - "subnet-0525bb50919612bc6"
-        - "subnet-057cbae7bcbb6aff0"
-# │ ster (sample-eks-cluster): operation error EKS: CreateCluster, https response error StatusCode: 403, RequestID: 2cc2d36d-6dbd-459d-83ea-87d25010dd7f, api error AccessDeniedException: │
-# │  Cross-account pass role is not allowed.  []}]                                                                                                                                         │
-# │   Warning  CannotCreateExternalResource  37s                managed/eks.aws.upbound.io/v1beta1, kind=cluster  async create failed: failed to create the resource: [{0 creating EKS Clu │
-# │ ster (sample-eks-cluster): operation error EKS: CreateCluster, https response error StatusCode: 403, RequestID: 9dfad02c-7727-45cb-8b6b-484baca20b5a, api error AccessDeniedException: │
-# │  Cross-account pass role is not allowed.  []}]                                                                                                                                         │
+      - subnetIdRefs:
+          - name: subnetattach-1
