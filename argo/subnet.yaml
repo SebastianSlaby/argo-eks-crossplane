@@ -12,3 +12,18 @@ spec:
     vpcIdSelector:
       matchLabels:
         purpose: eks
+---
+apiVersion: ec2.aws.upbound.io/v1beta1
+kind: Subnet
+metadata:
+  name: subnetattach-2
+  annotations:
+    argocd.argoproj.io/sync-wave: "99"
+spec:
+  forProvider:
+    availabilityZone: us-east-1b
+    cidrBlock: 10.7.6.0/24
+    region: us-east-1
+    vpcIdSelector:
+      matchLabels:
+        purpose: eks
