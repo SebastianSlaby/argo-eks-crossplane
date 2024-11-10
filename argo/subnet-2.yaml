@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "99"
 spec:
   forProvider:
-    availabilityZone: us-east-1b
+    availabilityZone: us-east-1c
     cidrBlock: 10.7.6.0/24
     region: us-east-1
     vpcIdSelector:
