@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: crossplane
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   generators:
   - clusters: {} # Provision to all clusters
