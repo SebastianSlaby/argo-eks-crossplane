@@ -4,7 +4,7 @@ metadata:
   name: subnetattach-1
 spec:
   forProvider:
-    availabilityZone: us-west-1b
+    availabilityZone: us-east-1b
     cidrBlock: 10.7.5.0/24
     region: us-east-1
     vpcIdSelector:
