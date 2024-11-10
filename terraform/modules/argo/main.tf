@@ -27,11 +27,15 @@ resource "kubernetes_secret" "repo" {
   }
 }
 
-# Deploy this with Helm and set dependencies to avoid errors about CRDs not existing
-resource "kubernetes_manifest" "app_of_apps" {
-  manifest = yamldecode(file("${path.module}/manifests/app-of-apps.yaml"))
-}
 
+resource "helm_release" "bootstrap" {
+  name      = "bootstrap"
+  namespace = "argocd"
+  chart     = "${path.module}/manifests/app-of-apps/resources"
+  version   = "1.0.0"
+
+  depends_on = [resource.kubernetes_secret.cluster]
+}
 resource "kubernetes_secret" "cluster" {
   depends_on = [ helm_release.argo ]
   metadata {
@@ -42,6 +46,7 @@ resource "kubernetes_secret" "cluster" {
     }
     annotations = {
       "clusterName" = var.cluster_name
+      "crossplaneRoleArn" = module.crossplane_irsa_role.iam_role_arn
       "lbControllerArn" = module.lb_controller_irsa_role.iam_role_arn
     }
   }
