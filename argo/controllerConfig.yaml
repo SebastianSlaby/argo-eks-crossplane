@@ -4,7 +4,7 @@ metadata:
   name: aws-config
   annotations:
     argocd.argoproj.io/sync-wave: "7"
-    eks.amazonaws.com/role-arn: arn:aws:iam::107045546375:role/crossplane
+    eks.amazonaws.com/role-arn: arn:aws:iam::767397804217:role/crossplane
 spec:
   podSecurityContext:
     fsGroup: 2000
