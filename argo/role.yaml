@@ -1,28 +1,23 @@
-apiVersion: iam.aws.crossplane.io/v1beta1
+apiVersion: iam.aws.upbound.io/v1beta1
 kind: Role
 metadata:
-  name: somenoderole
   annotations:
-    argocd.argoproj.io/sync-wave: "99"
+    meta.upbound.io/example-id: iam/v1beta1/role
+  labels:
+    testing.upbound.io/example-name: role
+  name: sample-role
 spec:
   forProvider:
-    assumeRolePolicyDocument: |
+    assumeRolePolicy: |
       {
         "Version": "2012-10-17",
         "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": [
-                        "ec2.amazonaws.com"
-                    ]
-                },
-                "Action": [
-                    "sts:AssumeRole"
-                ]
-            }
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "eks.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+          }
         ]
       }
-    tags:
-      - key: k2
-        value: v2
